@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+  <head>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" />
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+
+    <title>Angular ngStorage</title>
+  </head>
+  
+  <body ng-app="myApp">
+    
+    <div ng-controller="MainController" style="margin:50px;">
+
+      <h3>Local Storage</h3>
+      <p>Data persists even if tab is closed</p>
+
+      <button ng-click="$local_storage.x = $local_storage.x + 1">
+        {{$local_storage.x}}
+      </button>       
+      +       
+      <button ng-click="$local_storage.y =$local_storage.y + 1">
+        {{$local_storage.y}}
+      </button>       
+      =       
+      {{$local_storage.x + $local_storage.y}}
+
+      <hr>
+
+      <button ng-click="delete_local_X()"> Delete $scope.$local_storage.x </button> | 
+      <button ng-click="delete_local_Y()"> Delete $localStorage.y   </button> <br><br>
+
+      <button ng-click="$local_storage.$reset({x: 999, y:1})"> Clear Local Storage </button>
+
+      <br><br>
+      
+
+      <h3>Session Storage</h3>
+      <p>Data persists only till tab is not closed</p>
+
+      <button ng-click="$session_storage.x = $session_storage.x + 1">
+        {{$session_storage.x}}
+      </button>       
+      +       
+      <button ng-click="$session_storage.y =$session_storage.y + 1">
+        {{$session_storage.y}}
+      </button>       
+      =       
+      {{$session_storage.x + $session_storage.y}}
+
+      <hr>
+
+      <button ng-click="delete_session_X()"> Delete $scope.$session_storage.x </button> | 
+      <button ng-click="delete_session_Y()"> Delete $sessionStorage.y   </button> <br><br>
+
+      <button ng-click="$session_storage.$reset({x: 999, y:1})"> Clear Session Storage </button>
+
+    </div>
+    
+
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+  </body>
+</html>
